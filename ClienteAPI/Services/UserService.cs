@@ -18,8 +18,10 @@ namespace ClienteAPI.Services
             {
                 User user = new User()
                 {
-                    IsAdmin = creationUserRequest.IsAdmin,
-                    Name = creationUserRequest.Name,
+                    TaxNumber = creationUserRequest.TaxNumber,
+                    FullName = creationUserRequest.FullName,
+                    IncomeValue = creationUserRequest.IncomeValue,
+                    BirthDate = creationUserRequest.BirthDate,
                     CreationDate = DateTime.Now,
                     DeletionDate = null,
                     UpdateDate = DateTime.Now
@@ -41,11 +43,12 @@ namespace ClienteAPI.Services
             _dbContext.SaveChanges();
         }
 
-        public void EditUser(UpdateUserRequest updateUserRequest)
+        public void UpdateUser(UpdateUserRequest updateUserRequest)
         {
             User user = _dbContext.User.Find(updateUserRequest.Id);
 
-            user.IsAdmin = updateUserRequest.IsAdmin;
+            user.IncomeValue = updateUserRequest.IncomeValue;
+            user.UpdateDate = DateTime.Now;
 
             _dbContext.User.Update(user);
             _dbContext.SaveChanges();

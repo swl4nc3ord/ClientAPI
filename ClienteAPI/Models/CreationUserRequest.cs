@@ -1,8 +1,15 @@
-﻿namespace ClienteAPI.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ClienteAPI.Models
 {
     public class CreationUserRequest
     {
-        public bool IsAdmin { get; set; }
-        public string? Name { get; set; }
+        [Required]
+        public string TaxNumber { get; set; }
+        public string FullName { get; set; }
+        [Required]
+        public decimal IncomeValue { get; set; }
+        [Required]
+        public DateTime BirthDate { get; set; }
     }
 }

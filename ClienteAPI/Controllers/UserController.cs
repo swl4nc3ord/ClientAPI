@@ -48,11 +48,11 @@ namespace ClienteAPI.Controllers
 
         [HttpPut]
         [Route("[action]")]
-        public ActionResult Edit(UpdateUserRequest updateUserRequest)
+        public ActionResult Update(UpdateUserRequest updateUserRequest)
         {
             try
             {
-                _userService.EditUser(updateUserRequest);
+                _userService.UpdateUser(updateUserRequest);
                 return Ok();
             }
             catch

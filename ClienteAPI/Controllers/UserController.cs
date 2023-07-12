@@ -1,4 +1,6 @@
-﻿using ClienteAPI.Interfaces;
+﻿using ClienteAPI.Entity;
+using ClienteAPI.Interfaces;
+using ClienteAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,10 +18,11 @@ namespace ClienteAPI.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public ActionResult Create()
+        public ActionResult Create(CreationUserRequest creationUserRequest)
         {
             try
             {
+                _userService.CreateUser(creationUserRequest);
                 return Ok();
             }
             catch
@@ -34,7 +37,8 @@ namespace ClienteAPI.Controllers
         {
             try
             {
-                return Ok();
+                User user = _userService.GetUser(id);
+                return Ok(user);
             }
             catch
             {
@@ -44,10 +48,11 @@ namespace ClienteAPI.Controllers
 
         [HttpPut]
         [Route("[action]")]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(UpdateUserRequest updateUserRequest)
         {
             try
             {
+                _userService.EditUser(updateUserRequest);
                 return Ok();
             }
             catch
@@ -63,6 +68,7 @@ namespace ClienteAPI.Controllers
         {
             try
             {
+                _userService.DeleteUser(id);
                 return Ok();
             }
             catch

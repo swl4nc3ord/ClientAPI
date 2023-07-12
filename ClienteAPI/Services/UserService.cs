@@ -43,10 +43,9 @@ namespace ClienteAPI.Services
 
         public void EditUser(UpdateUserRequest updateUserRequest)
         {
-            User user = new User()
-            {
-                IsAdmin = updateUserRequest.IsAdmin,
-            };
+            User user = _dbContext.User.Find(updateUserRequest.Id);
+
+            user.IsAdmin = updateUserRequest.IsAdmin;
 
             _dbContext.User.Update(user);
             _dbContext.SaveChanges();
@@ -54,7 +53,7 @@ namespace ClienteAPI.Services
 
         public User GetUser(long id)
         {
-            User user = new User();
+            User user;
             user = _dbContext.User.Find(id);
 
             return user;

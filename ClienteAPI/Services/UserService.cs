@@ -30,36 +30,58 @@ namespace ClienteAPI.Services
                 _dbContext.User.Add(user);
                 _dbContext.SaveChanges();
             }
-            catch
+            catch(Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
         public void DeleteUser(long id)
         {
-            User user = _dbContext.User.Find(id);
-            _dbContext.User.Remove(user);
-            _dbContext.SaveChanges();
+            try
+            {
+                User user = _dbContext.User.Find(id);
+                _dbContext.User.Remove(user);
+                _dbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public void UpdateUser(UpdateUserRequest updateUserRequest)
         {
-            User user = _dbContext.User.Find(updateUserRequest.Id);
+            try
+            {
+                User user = _dbContext.User.Find(updateUserRequest.Id);
 
-            user.IncomeValue = updateUserRequest.IncomeValue;
-            user.UpdateDate = DateTime.Now;
+                user.IncomeValue = updateUserRequest.IncomeValue;
+                user.UpdateDate = DateTime.Now;
 
-            _dbContext.User.Update(user);
-            _dbContext.SaveChanges();
+                _dbContext.User.Update(user);
+                _dbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
 
         public User GetUser(long id)
         {
-            User user;
-            user = _dbContext.User.Find(id);
+            try
+            {
+                User user;
+                user = _dbContext.User.Find(id);
 
-            return user;
+                return user;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

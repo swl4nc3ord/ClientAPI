@@ -18,62 +18,62 @@ namespace ClienteAPI.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public ActionResult Create(CreationUserRequest creationUserRequest)
+        public IActionResult Create(CreationUserRequest creationUserRequest)
         {
             try
             {
                 _userService.CreateUser(creationUserRequest);
                 return Ok();
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
         [HttpGet]
         [Route("[action]")]
-        public ActionResult Get(int id)
+        public IActionResult Get(int id)
         {
             try
             {
                 User user = _userService.GetUser(id);
                 return Ok(user);
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
         [HttpPut]
         [Route("[action]")]
-        public ActionResult Update(UpdateUserRequest updateUserRequest)
+        public IActionResult Update(UpdateUserRequest updateUserRequest)
         {
             try
             {
                 _userService.UpdateUser(updateUserRequest);
                 return Ok();
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
       
         [HttpDelete]
         [Route("[action]")]
-        public ActionResult Delete(int id)
+        public IActionResult  Delete(int id)
         {
             try
             {
                 _userService.DeleteUser(id);
                 return Ok();
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
     }

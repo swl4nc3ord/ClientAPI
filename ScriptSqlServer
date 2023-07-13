@@ -1,0 +1,11 @@
+CREATE TABLE [User]
+( 
+    UserId bigint not null IDENTITY(1,1) PRIMARY KEY,
+    TaxNumber varchar(11) not null,
+    FullName  varchar(200) null,
+    IncomeValue decimal(18, 0) not null,
+    BirthDate datetime not null,
+    CreationDate datetime not null,
+    UpdateDate datetime not null,
+    DeletionDate datetime null,
+);

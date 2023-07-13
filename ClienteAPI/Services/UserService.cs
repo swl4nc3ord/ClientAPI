@@ -23,7 +23,6 @@ namespace ClienteAPI.Services
                     IncomeValue = creationUserRequest.IncomeValue,
                     BirthDate = creationUserRequest.BirthDate,
                     CreationDate = DateTime.Now,
-                    DeletionDate = null,
                     UpdateDate = DateTime.Now
                 };
 

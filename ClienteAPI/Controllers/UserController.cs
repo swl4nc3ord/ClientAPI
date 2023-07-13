@@ -1,6 +1,7 @@
 ﻿using ClienteAPI.Entity;
 using ClienteAPI.Interfaces;
 using ClienteAPI.Models;
+using ClienteAPI.Models.Result;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,12 +19,12 @@ namespace ClienteAPI.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public IActionResult Create(CreationUserRequest creationUserRequest)
+        public IActionResult Create([FromBody]CreationUserRequest creationUserRequest)
         {
             try
             {
                 _userService.CreateUser(creationUserRequest);
-                return Ok();
+                return Ok(new Response() { Sucess = true, Data = null, Message = "Usuário criado com sucesso"});
             }
             catch(Exception ex)
             {
@@ -38,7 +39,7 @@ namespace ClienteAPI.Controllers
             try
             {
                 User user = _userService.GetUser(id);
-                return Ok(user);
+                return Ok(new Response() { Sucess = true, Data = user});
             }
             catch (Exception ex)
             {
@@ -53,7 +54,7 @@ namespace ClienteAPI.Controllers
             try
             {
                 _userService.UpdateUser(updateUserRequest);
-                return Ok();
+                return Ok(new Response() { Sucess = true, Data = null, Message = "Usuário atualizado com sucesso" });
             }
             catch (Exception ex)
             {
@@ -69,7 +70,7 @@ namespace ClienteAPI.Controllers
             try
             {
                 _userService.DeleteUser(id);
-                return Ok();
+                return Ok(new Response() { Sucess = true, Data = null, Message = "Usuário deletado com sucesso" });
             }
             catch (Exception ex)
             {

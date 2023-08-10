@@ -4,19 +4,21 @@ Esse Projeto é uma API simples com CRUD de User para atender as necessidades de
 
 Para insert da tabela de usuários, o script se encontra no arquivo "ScriptSqlServer"
 
-# Instalação
+## Instalação
 
-1. Clone este repositório em sua máquina local: https://github.com/swl4nc3ord/ClientAPI
+### 1. Clone este repositório em sua máquina local: https://github.com/swl4nc3ord/ClientAPI
 
-2. Instale o .NET Core SDK e o SQLServer em sua máquina local.
+### 2. Instale o .NET Core SDK e o SQLServer em sua máquina local.
 
-3. Configure a conexão com o banco de dados SQLServer no arquivo appsettingsDevelopment.json:
+### 3. Configure a conexão com o banco de dados SQLServer no arquivo appsettingsDevelopment.json:
    
- "ConnectionStrings": { "SqlServer": "Server=myServerAddress;Database=myDataBase;Trusted_Connection=True;TrustServerCertificate=True;" },
+   "ConnectionStrings": { "SqlServer": "Server=myServerAddress;Database=myDataBase;Trusted_Connection=True;TrustServerCertificate=True;" },
 
-4. Execute o comando abaixo na pasta raiz do projeto para criar as tabelas no banco de dados:
+### 5. Execute o comando abaixo na pasta raiz do projeto para criar as tabelas no banco de dados:
+   
+   dotnet ef database update
 
-# Utilização
+## Utilização
 
-1. Inicie a aplicação executando a solution pelo Visual Studio 2022
-2. Ao executar irá abrir uma nova aba em seu navegador da documentação Swagger de métodos
+### 1. Inicie a aplicação executando a solution pelo Visual Studio 2022
+### 2. Ao executar irá abrir uma nova aba em seu navegador da documentação Swagger de métodos

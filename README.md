@@ -21,7 +21,9 @@ git clone https://github.com/swl4nc3ord/ClientAPI.git
  
 #### 4. Execute o comando abaixo na pasta raiz do projeto para criar as tabelas no banco de dados:
 
-``Para insert da tabela de usuários, o script se encontra no arquivo "ScriptSqlServer"`
+``
+Para insert da tabela de usuários, o script se encontra no arquivo "ScriptSqlServer" 
+``
 
 ## Utilização
 #### 1. Inicie a aplicação executando a solution pelo Visual Studio 2022
